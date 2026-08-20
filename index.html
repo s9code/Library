@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="" id="formulario">
+
+        <fieldset>
+            <div>
+                <label for="titulo">Título</label>
+                <input 
+                type="text"
+                name="titulo"
+                id="titulo"
+                placeholder="Introduce el Titulo del libro"
+                required
+                >
+            </div>
+
+            <div>
+                <label for="autor">Autor</label>
+                <input
+                type="text"
+                name="autor"
+                id="autor"
+                placeholder="Introduce el autor"
+                required
+                >
+            </div>
+
+            <div>
+                <label for="paginas">Páginas</label>
+                <input
+                type="number"
+                name="paginas"
+                id="paginas"
+                placeholder="Introduce las páginas"
+                required
+                >
+            </div>
+
+            <div>
+                <label for="lectura">¿Has leido el libro?</label>
+                <select
+                name="lectura"
+                id="lectura">
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Enviar" class="submit-btn">
+
+        </fieldset>
+
+    </form>
+    
+    <div class="contenedor-libreria"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
