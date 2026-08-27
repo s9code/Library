@@ -1,17 +1,17 @@
 // 1. LLamadas a elementos del DOM
 const contenedorLibros = document.querySelector(".contenedor-libreria");
 const formulario = document.querySelector("#formulario");
+const nuevoLibro = document.querySelector("#btn-nuevo-libro");
+const dialog = document.querySelector("#modal-libro");
+const cerrarModal = document.querySelector("#btn-cerrar-modal");
 
 // 2. Array donde se guardan los libros
 const libreria = [];
 
 // 3. Función que recorre el array libreria y muestra los libros
-// Recorre el array "libreria" y, por cada libro, crea un div con sus datos
-// (título, autor, páginas y estado de lectura) dentro de contenedorLibros.
-// Antes de dibujar, vacía el contenedor para evitar que los libros se dupliquen.
 function recorrerLibreria() {
 
-    // 3.1. Vacía el contenedor para evitar que los libros se dupliquen
+    // 3.1. Vacía el contenedor para evitar que los libros se muestren dos veces
     contenedorLibros.textContent = "";
 
     // 3.2. Recorre el array "libreria"
@@ -29,10 +29,15 @@ function recorrerLibreria() {
         const btnEstado = document.createElement("button");
         const btnEliminar = document.createElement("button");
 
-        // 3.3.1 Añade un atributo "data-id" al <div>
+        // 3.3.1 Añade una clase a cada elemento
+        div.classList.add("tarjeta-libro");
+        btnEliminar.classList.add("eliminar-btn");
+        btnEstado.classList.add("estado-btn");
+
+        // 3.3.2 Añade un atributo "data-id" al <div>
         div.setAttribute("data-id", libro.id);
 
-        // 3.3.2 Añade el <div> al final del contenedor y luego añade los elementos h3, parrafoAutor, etc al <div>
+        // 3.4 Añade el <div> al final del contenedor y luego añade los elementos h3, parrafoAutor, etc al <div>
         contenedorLibros.appendChild(div);
         div.appendChild(h3);
         div.appendChild(parrafoAutor);
@@ -41,7 +46,7 @@ function recorrerLibreria() {
         div.appendChild(btnEliminar);
         div.appendChild(btnEstado);
 
-        // 3.4. Establece el contenido de texto de cada elemento.
+        // 3.5 Establece el contenido de texto de cada elemento
         h3.textContent = (libro.titulo);
         parrafoAutor.textContent = (libro.autor); 
         parrafoPaginas.textContent = (libro.paginas);
@@ -49,7 +54,7 @@ function recorrerLibreria() {
         btnEliminar.textContent = ("Eliminar")
         btnEstado.textContent = ("cambiar estado");
 
-        // 3.5 Añade un evento al botón "cambiar estado"
+        // 3.5.1 Añade un evento al botón "cambiar estado"
         btnEstado.addEventListener("click", () => {
             // Cambia el estado de lectura del libro
             libro.toggleLectura();
@@ -57,7 +62,7 @@ function recorrerLibreria() {
             recorrerLibreria();
         })
 
-        // 3.6 Añade un evento al botón "Eliminar"
+        // 3.5.2 Añade un evento al botón "Eliminar"
         btnEliminar.addEventListener("click", () => {
 
             // Busca el índice del libro actual en el array libreria
@@ -89,8 +94,6 @@ Libro.prototype.toggleLectura = function () {
 };
 
 // 5. Función para añadir un libro a la librería
-// Recibe los datos de un libro, crea una instancia con el constructor Libros
-// y la añade al array libreria.
 function agregarLibro(titulo, autor, paginas, lectura) {
     // Crea una nueva instancia de Libro con los datos proporcionados
     const libro = new Libro (titulo, autor, paginas, lectura);
@@ -99,9 +102,6 @@ function agregarLibro(titulo, autor, paginas, lectura) {
 }
 
 // 6. Función para escuchar el formulario
-// Al enviar el formulario, recoge los valores de los campos, los convierte
-// a los tipos correctos (número para páginas, booleano para lectura),
-// crea el libro, refresca la pantalla y limpia el formulario.
 formulario.addEventListener("submit", function (e) {
     // Evita que la página se recargue
     e.preventDefault();
@@ -120,10 +120,25 @@ formulario.addEventListener("submit", function (e) {
 
     // Agrega el libro al array libreria
     agregarLibro(titulo.value, autor.value, numeroDepaginas, leido);
+
     // Y actualiza la visualización
     recorrerLibreria();
 
     // Resetear los campos del formulario
     formulario.reset();
 
+    // Cierra el diálogo al enviar el formulario
+    dialog.close();
+
 });
+
+// 7. Event listener para abrir el diálogo  
+// Abre el diálogo al hacer clic en el botón "Nuevo libro"
+nuevoLibro.addEventListener("click", () => {
+    dialog.showModal();
+})
+
+// Cierra el diálogo al hacer clic en el botón "Cerrar"
+cerrarModal.addEventListener("click", () => {
+    dialog.close();
+})

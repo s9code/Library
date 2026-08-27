@@ -1,67 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Mi biblioteca personal</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <form action="" id="formulario">
+    <h1>Mi biblioteca personal</h1>
+    <!-- 
+    - Botón "Nuevo libro" que se encarga de mostrar el diálogo cuando se hace clic en él
+    -->
+    <button id="btn-nuevo-libro">Nuevo libro</button>
 
-        <fieldset>
-            <div>
-                <label for="titulo">Título</label>
-                <input 
-                type="text"
-                name="titulo"
-                id="titulo"
-                placeholder="Introduce el Titulo del libro"
-                required
-                >
-            </div>
+    <dialog id="modal-libro">
+        <!-- 
+        - Formulario para añadir libros
+        - El formulario está oculto al principio y se muestra cuando se hace clic en el botón "Nuevo libro"
+        -->
+        <form action="" id="formulario">
+            <!--
+            - Se crea unFieldSet para agrupar los campos del formulario
+            -->
+            <fieldset>
+                <!-- 
+                - Divs para agrupar cada campo del formulario
+                -->
+                <div>
+                    <label for="titulo">Título</label>
+                    <input
+                    type="text"
+                    name="titulo"
+                    id="titulo"
+                    placeholder="Introduce el Titulo del libro"
+                    required 
+                    >
+                </div>
 
-            <div>
-                <label for="autor">Autor</label>
-                <input
-                type="text"
-                name="autor"
-                id="autor"
-                placeholder="Introduce el autor"
-                required
-                >
-            </div>
+                <div>
+                    <label for="autor">Autor</label>
+                    <input
+                    type="text"
+                    name="autor"
+                    id="autor"
+                    placeholder="Introduce el autor"
+                    required
+                    >
+                </div>
+                
+                <div>
+                    <label for="paginas">Páginas</label>
+                    <input
+                    type="number"
+                    name="paginas"
+                    id="paginas"
+                    placeholder="Introduce las páginas"
+                    required
+                    >
+                </div>
 
-            <div>
-                <label for="paginas">Páginas</label>
-                <input
-                type="number"
-                name="paginas"
-                id="paginas"
-                placeholder="Introduce las páginas"
-                required
-                >
-            </div>
+                <!-- 
+                - Campo "lectura" de tipo "select" con dos opciones: "true" y "false"
+                -->
+                <div>
+                    <label for="lectura">¿Has leido el libro?</label>
+                    <select
+                    name="lectura"
+                    id="lectura">
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                
+                <!-- 
+                - Botón "Enviar" que se encarga de enviar el formulario cuando se hace clic en él
+                -->
+                <input type="submit" value="Enviar" class="submit-btn">
 
-            <div>
-                <label for="lectura">¿Has leido el libro?</label>
-                <select
-                name="lectura"
-                id="lectura">
-                    <option value="true">Sí</option>
-                    <option value="false">No</option>
-                </select>
-            </div>
+                <!-- 
+                - Botón "Cancelar" que se encarga de cerrar el diálogo cuando se hace clic en él
+                -->
+                <button type="button" id="btn-cerrar-modal">Cancelar</button>
 
-            <input type="submit" value="Enviar" class="submit-btn">
+            </fieldset>
 
-        </fieldset>
+        </form>
+    </dialog>
 
-    </form>
-
+    <!--
+    - Se crea un div con la clase "contenedor-libreria" para mostrar los libros
+    -->
     <div class="contenedor-libreria"></div>
-
+    <!--
+    - Se incluye el archivo "script.js" para que se pueda ejecutar el código JavaScript
+    -->
     <script src="script.js"></script>
 
 </body>
