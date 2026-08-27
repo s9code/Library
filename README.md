@@ -1,117 +1,59 @@
-<<<<<<< HEAD
-📚 Library — Gestor de Biblioteca Personal
+# 📚 Library — Gestor de Biblioteca Personal
 
-Aplicación web simple para gestionar una biblioteca de libros personal: agregar, visualizar, marcar como leído/no leído y eliminar libros, todo desde el navegador y sin necesidad de un backend.
+Aplicación web interactiva para gestionar una biblioteca de libros personal: agregar, visualizar, alternar el estado de lectura (leído/no leído) y eliminar libros en tiempo real, todo desde el navegador y con una interfaz moderna en modo oscuro.
 
-Proyecto desarrollado como parte del currículo de JavaScript de The Odin Project.
+> Proyecto desarrollado como parte del currículo de JavaScript de **[The Odin Project](https://www.theodinproject.com/)**.
 
-🔗 Demo en vivo: [enlace a tu GitHub Pages / Netlify / Vercel]
+---
 
-Mostrar imagen
+## ✨ Funcionalidades
 
-✨ Funcionalidades
-➕ Agregar nuevos libros mediante un formulario (título, autor, número de páginas y estado de lectura).
-📖 Visualizar todos los libros de la biblioteca en tarjetas individuales.
-✅ Marcar/desmarcar un libro como leído con un solo clic.
-🗑️ Eliminar libros de la biblioteca.
-🆔 Cada libro tiene un identificador único (crypto.randomUUID()), lo que evita conflictos al eliminar o reordenar elementos.
-🛠️ Tecnologías utilizadas
-HTML5 — estructura semántica de la aplicación.
-CSS3 — estilos y diseño responsive.
-JavaScript (Vanilla) — lógica de la aplicación, sin frameworks ni librerías externas.
-Elemento nativo <dialog> para el formulario modal.
-🧠 Conceptos aplicados
+- ➕ **Agregar nuevos libros:** Mediante un formulario modal nativo con campos de título, autor, número de páginas y estado de lectura.
+- 📖 **Visualización dinámica:** Tarjetas individuales organizadas en una cuadrícula responsiva (*CSS Grid*).
+- 🔄 **Cambiar estado de lectura:** Alterna entre "Leído" y "No leído" con un clic utilizando métodos en el prototipo (`prototype`).
+- 🗑️ **Eliminar libros:** Borra cualquier libro de la colección actualizando la interfaz reactivamente.
+- 🆔 **Identificadores únicos:** Cada libro cuenta con un UUID único generado con `crypto.randomUUID()`.
+- 🎨 **Diseño Moderno (*Dark Mode*):** Efectos visuales con gradientes sutiles, micro-interacciones al pasar el cursor y ventana modal con fondo desenfocado (*backdrop blur*).
 
-Este proyecto puso en práctica los siguientes conceptos de JavaScript:
+---
 
-Funciones constructoras (function Book() {...}) y el uso de new.
-Métodos definidos en el prototype (por ejemplo, Book.prototype.toggleRead).
-Separación de responsabilidades entre los datos (array de objetos) y la interfaz (renderizado en el DOM).
-Manipulación dinámica del DOM (createElement, appendChild, innerHTML).
-Manejo de eventos y event.preventDefault() para controlar el envío de formularios.
-Atributos data-* para vincular elementos del DOM con sus objetos de datos correspondientes.
-Generación de identificadores únicos con crypto.randomUUID().
-🚀 Cómo ejecutar el proyecto localmente
-bash
-# Clona el repositorio
-git clone https://github.com/tu-usuario/nombre-del-repo.git
+## 🛠️ Tecnologías utilizadas
 
-# Entra a la carpeta del proyecto
-cd nombre-del-repo
+- **HTML5:** Estructura semántica y uso del elemento nativo `<dialog>`.
+- **CSS3:** Variables personalizadas (`:root`), CSS Grid, Flexbox, transiciones y diseño responsivo.
+- **JavaScript (ES6+ Vanilla):** Sin librerías ni frameworks externos, aplicando programación orientada a objetos basada en prototipos.
 
-# Abre el archivo index.html en tu navegador
-# (o usa una extensión como Live Server en VS Code)
+---
 
-No requiere instalación de dependencias ni build: es HTML, CSS y JS puro.
+## 🧠 Conceptos clave aplicados
 
-📌 Notas
-No se implementó almacenamiento persistente (localStorage o backend): la biblioteca se reinicia al recargar la página. Esto fue una decisión intencional según los requisitos del proyecto original.
-📖 Sobre el proyecto
+- **Funciones Constructoras:** Molde de objetos `Libro` instanciados con `new`.
+- **Prototipos de JavaScript:** Definición de métodos compartidos en `Libro.prototype.toggleLectura` para optimizar memoria.
+- **Manipulación del DOM:** Creación dinámica de elementos (`createElement`), asignación de atributos y renderizado condicional.
+- **Manejo de Formularios y Eventos:** Control de eventos `submit` y `click`, uso de `e.preventDefault()` y `reset()`.
+- **UX con Diálogo Nativo:** Control programático del modal mediante `dialog.showModal()` y `dialog.close()`.
 
-Este proyecto forma parte del currículo de The Odin Project, una plataforma de aprendizaje de desarrollo web gratuita y de código abierto. Puedes ver la consigna original de esta lección aquí.
+---
 
-👤 Autor
+## 🚀 Cómo ejecutar el proyecto localmente
 
-[Tu nombre]
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/s9code/Library.git
+   ```
 
-GitHub: @tu-usuario
-LinkedIn: tu perfil
-=======
-📚 Library — Gestor de Biblioteca Personal
+2. **Entrar en la carpeta:**
+   ```bash
+   cd Library
+   ```
 
-Aplicación web simple para gestionar una biblioteca de libros personal: agregar, visualizar, marcar como leído/no leído y eliminar libros, todo desde el navegador y sin necesidad de un backend.
+3. **Abrir el proyecto:**
+   - Abre el archivo `index.html` en tu navegador favorito, o utiliza la extensión **Live Server** en VS Code.
 
-Proyecto desarrollado como parte del currículo de JavaScript de The Odin Project.
+*(No requiere instalación de dependencias ni procesos de compilación).*
 
-🔗 Demo en vivo: [enlace a tu GitHub Pages / Netlify / Vercel]
+---
 
-Mostrar imagen
+## 👤 Autor
 
-✨ Funcionalidades
-➕ Agregar nuevos libros mediante un formulario (título, autor, número de páginas y estado de lectura).
-📖 Visualizar todos los libros de la biblioteca en tarjetas individuales.
-✅ Marcar/desmarcar un libro como leído con un solo clic.
-🗑️ Eliminar libros de la biblioteca.
-🆔 Cada libro tiene un identificador único (crypto.randomUUID()), lo que evita conflictos al eliminar o reordenar elementos.
-🛠️ Tecnologías utilizadas
-HTML5 — estructura semántica de la aplicación.
-CSS3 — estilos y diseño responsive.
-JavaScript (Vanilla) — lógica de la aplicación, sin frameworks ni librerías externas.
-Elemento nativo <dialog> para el formulario modal.
-🧠 Conceptos aplicados
-
-Este proyecto puso en práctica los siguientes conceptos de JavaScript:
-
-Funciones constructoras (function Book() {...}) y el uso de new.
-Métodos definidos en el prototype (por ejemplo, Book.prototype.toggleRead).
-Separación de responsabilidades entre los datos (array de objetos) y la interfaz (renderizado en el DOM).
-Manipulación dinámica del DOM (createElement, appendChild, innerHTML).
-Manejo de eventos y event.preventDefault() para controlar el envío de formularios.
-Atributos data-* para vincular elementos del DOM con sus objetos de datos correspondientes.
-Generación de identificadores únicos con crypto.randomUUID().
-🚀 Cómo ejecutar el proyecto localmente
-bash
-# Clona el repositorio
-git clone https://github.com/tu-usuario/nombre-del-repo.git
-
-# Entra a la carpeta del proyecto
-cd nombre-del-repo
-
-# Abre el archivo index.html en tu navegador
-# (o usa una extensión como Live Server en VS Code)
-
-No requiere instalación de dependencias ni build: es HTML, CSS y JS puro.
-
-📌 Notas
-No se implementó almacenamiento persistente (localStorage o backend): la biblioteca se reinicia al recargar la página. Esto fue una decisión intencional según los requisitos del proyecto original.
-📖 Sobre el proyecto
-
-Este proyecto forma parte del currículo de The Odin Project, una plataforma de aprendizaje de desarrollo web gratuita y de código abierto. Puedes ver la consigna original de esta lección aquí.
-
-👤 Autor
-
-[Tu nombre]
-
-GitHub: @tu-usuario
-LinkedIn: tu perfil
->>>>>>> 517ff6e9e6769a16234afadcf1a072cbe072256f
+- **GitHub:** [@s9code](https://github.com/s9code)
