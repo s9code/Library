@@ -21,4 +21,4 @@ Construir una aplicación de biblioteca interactiva en el navegador aplicando:
 
 ## 🚀 Enlace en vivo
 
-_(Próximamente)_
+https://library-two-iota.vercel.app/
