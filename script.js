@@ -78,20 +78,23 @@ function recorrerLibreria() {
     };
 }
 
-// 4. Constructor para crear un libro
-function Libro(titulo, autor, paginas, lectura) {
-    this.id = crypto.randomUUID(); // Identificador único generado automáticamente
-    this.titulo = titulo;
-    this.autor = autor;
-    this.paginas = paginas;
-    this.lectura = lectura;
-}
+// 4. Clase para crear un libro
+class Libro {
+    constructor(titulo, autor, paginas, lectura) {
+        this.id = crypto.randomUUID(); // Identificador único generado automáticamente
+        this.titulo = titulo;
+        this.autor = autor;
+        this.paginas = paginas;
+        this.lectura = lectura;
+    }
+ 
+    // 4.1 Metodo para cambiar el estado de lectura (actualiza la propiedad lectura)
+    toggleLectura() {
+        // Invierte el valor actual de la propiedad lectura
+        this.lectura = !this.lectura;
+    }
 
-// 4.1 Metodo para cambiar el estado de lectura (actualiza la propiedad lectura)
-Libro.prototype.toggleLectura = function () {
-    // Invierte el valor actual de la propiedad lectura
-    this.lectura = !this.lectura;
-};
+}
 
 // 5. Función para añadir un libro a la librería
 function agregarLibro(titulo, autor, paginas, lectura) {
